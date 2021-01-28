@@ -1,5 +1,5 @@
 
-H E L L O   V I S I T E R !
+H E L L O           V I S I T E R !
 
 
 This application is generated for just spending a fun time!
