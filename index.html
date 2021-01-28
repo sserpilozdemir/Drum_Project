@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D R U M    K I T </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="keys">
+
+        <div data-key="65" class="key">
+            <kbd>A</kbd>
+            <span class="sound">crunchy-bits</span>
+        </div>
+
+        <div data-key="83" class="key">
+            <kbd>S</kbd>
+            <span class="sound">jazz-piano</span>
+        </div>
+
+        <div data-key="68" class="key">
+            <kbd>D</kbd>
+            <span class="sound">jazz-seven</span>
+        </div>
+
+        <div data-key="70" class="key">
+            <kbd>F</kbd>
+            <span class="sound">rhodes-chords</span>
+        </div>     
+
+        <div data-key="71" class="key">
+            <kbd>G</kbd>
+            <span class="sound">snare</span>
+        </div>
+
+        <div data-key="72" class="key">
+            <kbd>H</kbd>
+            <span class="sound">spybreak</span>
+        </div>
+
+        <div data-key="74" class="key">
+            <kbd>J</kbd>
+            <span class="sound">super</span>
+        </div>
+
+        <div data-key="75" class="key">
+            <kbd>K</kbd>
+            <span class="sound">swingy</span>
+        </div>
+
+        <div data-key="76" class="key">
+            <kbd>L</kbd>
+            <span class="sound">trumpet-line</span>
+        </div>
+
+        <div data-key="81" class="key">
+            <kbd>Q</kbd>
+            <span class="sound">acid</span>
+        </div>
+
+        <div data-key="87" class="key">
+            <kbd>W</kbd>
+            <span class="sound">bass</span>
+        </div>
+
+        <div data-key="69" class="key">
+            <kbd>E</kbd>
+            <span class="sound">breath</span>
+        </div>
+
+        <div data-key="82" class="key">
+            <kbd>R</kbd>
+            <span class="sound">classic</span>
+        </div>
+
+        <div data-key="84" class="key">
+            <kbd>T</kbd>
+            <span class="sound">d-chord</span>
+        </div>
+
+        <div data-key="89" class="key">
+            <kbd>Y</kbd>
+            <span class="sound">distorted</span>
+        </div>
+
+        <div data-key="85" class="key">
+            <kbd>U</kbd>
+            <span class="sound">duo-stereo</span>
+        </div>
+
+        <div data-key="73" class="key">
+            <kbd>I</kbd>
+            <span class="sound">electric-piano</span>
+        </div>
+
+        <div data-key="79" class="key">
+            <kbd>O</kbd>
+            <span class="sound">fade</span>
+        </div>
+
+        <div data-key="80" class="key">
+            <kbd>P</kbd>
+            <span class="sound">funk</span>
+        </div>
+        
+        <div data-key="90" class="key">
+            <kbd>Z</kbd>
+            <span class="sound">hip-hop</span>
+        </div>
+
+        <div data-key="88" class="key">
+            <kbd>X</kbd>
+            <span class="sound">sax</span>
+        </div>
+
+        <div data-key="67" class="key">
+            <kbd>C</kbd>
+            <span class="sound">too-bad</span>
+        </div>
+        
+        <div data-key="86" class="key">
+            <kbd>V</kbd>
+            <span class="sound">piano</span>
+        </div>
+
+        <div data-key="66" class="key">
+            <kbd>B</kbd>
+            <span class="sound">minor-baby</span>
+        </div>
+
+        <div data-key="78" class="key">
+            <kbd>N</kbd>
+            <span class="sound">new-age</span>
+        </div>
+
+        <div data-key="77" class="key">
+            <kbd>M</kbd>
+            <span class="sound">soul</span>
+        </div>
+
+
+    </div>
+
+    <audio data-key="65" src="sounds/crunchy-bits.wav"></audio>
+    <audio data-key="83" src="sounds/jazz-piano.wav"></audio>
+    <audio data-key="68" src="sounds/jazz-seven.wav"></audio>
+    <audio data-key="70" src="sounds/rhodes-chords.wav"></audio>
+    <audio data-key="71" src="sounds/snare.wav"></audio>
+    <audio data-key="72" src="sounds/spybreak.wav"></audio>
+    <audio data-key="74" src="sounds/super.wav"></audio>
+    <audio data-key="75" src="sounds/swingy.wav"></audio>
+    <audio data-key="76" src="sounds/trumpet-line.wav"></audio>
+    <audio data-key="81" src="sounds/acid.wav"></audio>
+    <audio data-key="87" src="sounds/bass.wav"></audio>
+    <audio data-key="69" src="sounds/breath.wav"></audio>
+    <audio data-key="82" src="sounds/classic.wav"></audio>
+    <audio data-key="84" src="sounds/d-chord.wav"></audio>
+    <audio data-key="89" src="sounds/distorted.wav"></audio>
+    <audio data-key="85" src="sounds/duo-stereo.wav"></audio>
+    <audio data-key="73" src="sounds/electric-piano.wav"></audio>
+    <audio data-key="79" src="sounds/fade.wav"></audio>
+    <audio data-key="80" src="sounds/funk.wav"></audio>
+    <audio data-key="90" src="sounds/hip-hop.wav"></audio>
+    <audio data-key="88" src="sounds/sax.wav"></audio>
+    <audio data-key="67" src="sounds/too-bad.wav"></audio>
+    <audio data-key="86" src="sounds/piano.wav"></audio>
+    <audio data-key="66" src="sounds/minor-baby.wav"></audio>
+    <audio data-key="78" src="sounds/new-age.wav"></audio>
+    <audio data-key="77" src="sounds/soul.wav"></audio>
+
+<script>
+
+function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  }
+
+
+function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if (!audio) return;
+
+    key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
+
+  }
+
+  const keys = Array.from(document.querySelectorAll(".key"));
+  keys.forEach(key => key.addEventListener("transitionend", removeTransition));
+  window.addEventListener("keydown", playSound);
+
+</script>
+</body>
+</html>
